@@ -12,8 +12,13 @@
     }
 
     .video-item {
-      flex: 1 1 50%; /* 每个视频占父容器 50% 宽度（根据屏幕大小调整） */
-      max-width: 50%; /* 确保宽度不会超过 50% */
+      flex: 1 1 75%; /* 每个视频占父容器 50% 宽度（根据屏幕大小调整） */
+      max-width: 75%; /* 确保宽度不会超过 50% */
+      box-sizing: border-box; /* 包括 padding 和边框在内的宽度计算 */
+    }
+    .video-item-thin {
+      flex: 1 1 40%; /* 每个视频占父容器 50% 宽度（根据屏幕大小调整） */
+      max-width: 40%; /* 确保宽度不会超过 50% */
       box-sizing: border-box; /* 包括 padding 和边框在内的宽度计算 */
     }
 
@@ -197,25 +202,25 @@ Substantial experiments on the nuScenes and Argoverse2 datasets demonstrate that
     <!-- Animation. -->
     <div class="video-grid">
       <div class="video-item">
-        <video id="replay-video" controls muted preload playsinline>
+        <video id="replay-video" controls muted preload playsinline autoplay loop>
           <source src="./static/videos/scene1.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="video-item">
-        <video id="replay-video" controls muted preload playsinline>
-          <source src="./static/videos/video4.mp4" type="video/mp4">
+      <div class="video-item-thin">
+        <video id="replay-video" controls muted preload playsinline autoplay loop>
+          <source src="./static/videos/scene2.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-item">
-        <video id="replay-video" controls muted preload playsinline>
-          <source src="./static/videos/video2.mp4" type="video/mp4">
+        <video id="replay-video" controls muted preload playsinline autoplay loop>
+          <source src="./static/videos/scene3.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="video-item">
+      <!-- <div class="video-item">
         <video id="replay-video" controls muted preload playsinline>
           <source src="./static/videos/video3.mp4" type="video/mp4">
         </video>
-      </div>
+      </div> -->
     </div>
 
   </div>
