@@ -12,8 +12,8 @@
     }
 
     .video-item {
-      flex: 1 1 75%; /* 每个视频占父容器 50% 宽度（根据屏幕大小调整） */
-      max-width: 75%; /* 确保宽度不会超过 50% */
+      flex: 1 1 80%; /* 每个视频占父容器 50% 宽度（根据屏幕大小调整） */
+      max-width: 80%; /* 确保宽度不会超过 50% */
       box-sizing: border-box; /* 包括 padding 和边框在内的宽度计算 */
     }
     .video-item-thin {
@@ -21,11 +21,21 @@
       max-width: 40%; /* 确保宽度不会超过 50% */
       box-sizing: border-box; /* 包括 padding 和边框在内的宽度计算 */
     }
-
     video {
       width: 100%; /* 视频填满父容器 */
-      height: auto; /* 保持纵横比 */
+      outline: none; /* 移除默认的焦点样式 */
     }
+    video::-webkit-media-controls {
+      display: none !important; /* 隐藏进度栏 */
+    }
+    video::-moz-media-controls {
+      display: none !important; /* 隐藏进度栏 */
+    }
+    video::-ms-media-controls {
+      display: none !important; /* 隐藏进度栏 */
+    }
+
+    
   </style>
   <meta charset="utf-8">
   <meta name="description"
@@ -202,20 +212,20 @@ Substantial experiments on the nuScenes and Argoverse2 datasets demonstrate that
     <!-- Animation. -->
     <div class="video-grid">
       <div class="video-item">
-        <video id="replay-video" controls muted preload playsinline autoplay loop>
-          <source src="./static/videos/scene1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="video-item-thin">
-        <video id="replay-video" controls muted preload playsinline autoplay loop>
-          <source src="./static/videos/scene2.mp4" type="video/mp4">
+        <video id="replay-video" controls muted preload playsinline autoplay loop controlsList="nodownload">
+          <source src="./static/videos/project-viz1.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-item">
         <video id="replay-video" controls muted preload playsinline autoplay loop>
-          <source src="./static/videos/scene3.mp4" type="video/mp4">
+          <source src="./static/videos/project-viz2.mp4" type="video/mp4">
         </video>
       </div>
+      <!-- <div class="video-item">
+        <video id="replay-video" controls muted preload playsinline autoplay loop>
+          <source src="./static/videos/scene3.mp4" type="video/mp4">
+        </video>
+      </div> -->
       <!-- <div class="video-item">
         <video id="replay-video" controls muted preload playsinline>
           <source src="./static/videos/video3.mp4" type="video/mp4">
@@ -230,12 +240,16 @@ Substantial experiments on the nuScenes and Argoverse2 datasets demonstrate that
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{yang2025histrackmap,
-      title={HisTrackMap: Global Vectorized High-Definition Map Construction via History Map Tracking},
-      author={Yang, Jing and Yang, Sen and Tan, Xiao and Wang, Hanli},
-      journal={arXiv preprint arXiv:2503.07168},
-      year={2025}
-    }</code></pre>
+    <pre><code>@misc{yang2025histrackmapglobalvectorizedhighdefinition,
+      title={HisTrackMap: Global Vectorized High-Definition Map Construction via History Map Tracking}, 
+      author={Jing Yang and Sen Yang and Xiao Tan and Hanli Wang},
+      year={2025},
+      eprint={2503.07168},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.07168}, 
+}
+    </code></pre>
   </div>
 </section>
 
@@ -243,13 +257,6 @@ Substantial experiments on the nuScenes and Argoverse2 datasets demonstrate that
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
